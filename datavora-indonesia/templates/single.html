@@ -1,0 +1,47 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<article class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:5rem;padding-left:1.5rem;padding-right:1.5rem;max-width:860px;margin:0 auto;">
+  <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"1.5rem"}}}} -->
+  <div class="wp-block-group" style="margin-bottom:1.5rem;">
+    <!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.85rem","fontWeight":"700"}}} /-->
+    <!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"2.75rem","fontWeight":"800","lineHeight":"1.2"},"color":{"text":"#102A43"},"spacing":{"margin":{"top":"0.75rem","bottom":"1rem"}}}} /-->
+    
+    <!-- wp:group {"layout":{"type":"flex","alignItems":"center"},"style":{"typography":{"fontSize":"0.875rem"},"color":{"text":"#64748B"}}} -->
+    <div class="wp-block-group" style="font-size:0.875rem;color:#64748B;">
+      <!-- wp:post-author {"showAvatar":false,"byline":"Oleh"} /-->
+      <!-- wp:paragraph -->
+      <p style="margin:0 0.75rem;">&bull;</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:post-date /-->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:post-featured-image {"aspectRatio":"16/9","style":{"border":{"radius":"12px"},"spacing":{"margin":{"bottom":"2.5rem"}}}} /-->
+
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+  <!-- wp:separator {"style":{"spacing":{"margin":{"top":"3rem","bottom":"2.5rem"}}}} -->
+  <hr class="wp-block-separator" style="margin-top:3rem;margin-bottom:2.5rem;"/>
+  <!-- /wp:separator -->
+
+  <!-- wp:post-navigation-link {"type":"previous","label":"&larr; Artikel Sebelumnya"} /-->
+  <!-- wp:post-navigation-link {"type":"next","label":"Artikel Selanjutnya &rarr;"} /-->
+
+  <!-- wp:comments {"style":{"spacing":{"margin":{"top":"3rem"}}}} -->
+  <div class="wp-block-comments" style="margin-top:3rem;">
+    <!-- wp:comments-title /-->
+    <!-- wp:comment-template -->
+      <!-- wp:comment-author-name /-->
+      <!-- wp:comment-date /-->
+      <!-- wp:comment-content /-->
+      <!-- wp:comment-reply-link /-->
+    <!-- /wp:comment-template -->
+    <!-- wp:comments-pagination /-->
+    <!-- wp:post-comments-form /-->
+  </div>
+  <!-- /wp:comments -->
+</article>
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

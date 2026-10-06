@@ -1,0 +1,415 @@
+/*
+Theme Name: DATAVORA INDONESIA
+Theme URI: https://datavora.co.id
+Author: DATAVORA INDONESIA
+Description: Professional corporate WordPress theme for DATAVORA INDONESIA, a data management, analytics, automation, problem solving, and application development company.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: datavora-indonesia
+*/
+
+/* ==========================================================================
+   1. UNIVERSAL BOX-SIZING & ANTI-HORIZONTAL-SCROLL SHIELD
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wp-site-blocks {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure all media cannot exceed viewport width */
+img, svg, video, canvas, audio, iframe, embed, object, figure {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Prevent long words or URLs from creating horizontal scrollbars */
+h1, h2, h3, h4, h5, h6, p, a, span, li, blockquote, dt, dd {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+pre, code, kbd, samp, table {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================================================
+   2. BRAND VARIABLES & BASE STYLES
+   ========================================================================== */
+:root {
+  --wp--preset--color--primary: #0F172A;
+  --wp--preset--color--secondary: #2563EB;
+  --wp--preset--color--accent: #06B6D4;
+  --wp--preset--color--gold: #C59B27;
+  --wp--preset--color--champagne: #E6C564;
+  --wp--preset--color--deep-gold: #94721C;
+  --wp--preset--color--light-bg: #FAF6ED;
+  --wp--preset--color--main-text: #1E293B;
+  --wp--preset--color--secondary-text: #64748B;
+  --wp--preset--color--white: #FFFFFF;
+  --wp--preset--color--border-slate: #E2E8F0;
+}
+
+body {
+  font-family: var(--wp--preset--font-family--inter, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  color: var(--wp--preset--color--main-text);
+  background-color: var(--wp--preset--color--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   3. RESPONSIVE CONTAINERS ACROSS BREAKPOINTS
+   ========================================================================== */
+.datavora-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Desktop & Large Tablet (1024px) */
+@media (max-width: 1024px) {
+  .datavora-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .datavora-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Mobile Devices (480px) */
+@media (max-width: 480px) {
+  .datavora-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra Small Phones (360px and below) */
+@media (max-width: 360px) {
+  .datavora-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   4. RESPONSIVE TYPOGRAPHY ACROSS BREAKPOINTS
+   ========================================================================== */
+h1, .wp-block-heading.is-style-h1, .wp-block-post-title {
+  font-size: clamp(1.75rem, 4.5vw + 0.5rem, 3rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h2, .wp-block-heading.is-style-h2 {
+  font-size: clamp(1.35rem, 3vw + 0.5rem, 2.25rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.875rem;
+}
+
+h3, .wp-block-heading.is-style-h3 {
+  font-size: clamp(1.15rem, 2vw + 0.5rem, 1.625rem);
+  line-height: 1.32;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: clamp(1rem, 1.25vw + 0.4rem, 1.25rem);
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  h1, .wp-block-heading.is-style-h1, .wp-block-post-title {
+    font-size: 1.75rem !important;
+    line-height: 1.22 !important;
+  }
+  h2, .wp-block-heading.is-style-h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.28 !important;
+  }
+  h3, .wp-block-heading.is-style-h3 {
+    font-size: 1.15rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  h1, .wp-block-heading.is-style-h1, .wp-block-post-title {
+    font-size: 1.5rem !important;
+  }
+  h2, .wp-block-heading.is-style-h2 {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* ==========================================================================
+   5. HEADER & STICKY NAVIGATION
+   ========================================================================== */
+.datavora-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.datavora-header .wp-block-group {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.datavora-header .wp-block-navigation a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #172B4D;
+  transition: color 0.2s ease;
+  font-size: 0.925rem;
+}
+
+.datavora-header .wp-block-navigation a:hover {
+  color: #2563EB;
+}
+
+@media (max-width: 768px) {
+  .datavora-header .wp-block-group {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   6. RESPONSIVE CARDS & PADDING
+   ========================================================================== */
+.datavora-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.datavora-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -10px rgba(16, 42, 67, 0.08), 0 4px 6px -2px rgba(16, 42, 67, 0.03);
+  border-color: #CBD5E1;
+}
+
+@media (max-width: 1024px) {
+  .datavora-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .datavora-card {
+    padding: 1.35rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .datavora-card {
+    padding: 1.125rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .datavora-card {
+    padding: 0.875rem;
+  }
+}
+
+/* ==========================================================================
+   7. BADGES & PILLS
+   ========================================================================== */
+.datavora-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: #FAF6ED;
+  color: #94721C;
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  max-width: 100%;
+  white-space: normal;
+}
+
+@media (max-width: 480px) {
+  .datavora-badge {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BUTTONS & CTAS
+   ========================================================================== */
+.wp-block-button__link.is-style-datavora-primary {
+  background: linear-gradient(135deg, #E6C564 0%, #C59B27 50%, #B8860B 100%) !important;
+  color: #090E17 !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.625rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  min-height: 44px;
+}
+
+.wp-block-button__link.is-style-datavora-primary:hover {
+  filter: brightness(1.08) !important;
+  box-shadow: 0 6px 16px rgba(184, 134, 11, 0.35) !important;
+}
+
+.wp-block-button__link.is-style-datavora-outline {
+  background-color: transparent !important;
+  color: #102A43 !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.625rem !important;
+  transition: all 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  min-height: 44px;
+}
+
+.wp-block-button__link.is-style-datavora-outline:hover {
+  border-color: #C59B27 !important;
+  color: #94721C !important;
+  background-color: #FAF6ED !important;
+}
+
+@media (max-width: 640px) {
+  .wp-block-buttons {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  .wp-block-buttons > .wp-block-button {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .wp-block-buttons > .wp-block-button > .wp-block-button__link {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ==========================================================================
+   9. RESPONSIVE COLUMNS & GRIDS (MOBILE UN-SQUEEZE)
+   ========================================================================== */
+@media (max-width: 781px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile) {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Query Grid Columns on Mobile */
+@media (max-width: 768px) {
+  .wp-block-post-template.is-flex-container {
+    flex-direction: column !important;
+  }
+  .wp-block-post-template.is-flex-container > li {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   10. SECTION PADDING ACROSS BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  section.wp-block-group,
+  div.wp-block-group.alignfull,
+  main.wp-block-group.alignwide {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  .datavora-hero-graphic {
+    padding: 1.25rem !important;
+    margin-top: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section.wp-block-group,
+  div.wp-block-group.alignfull,
+  main.wp-block-group.alignwide {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .datavora-hero-graphic {
+    padding: 1rem !important;
+  }
+}

@@ -1,0 +1,204 @@
+/**
+ * DATAVORA INDONESIA - Custom Theme Styling
+ * Responsive utilities, card hovers, and data visualization UI accents
+ */
+
+:root {
+  --color-primary: #0F172A;
+  --color-secondary: #2563EB;
+  --color-accent: #06B6D4;
+  --color-gold: #C59B27;
+  --color-champagne: #E6C564;
+  --color-deep-gold: #94721C;
+  --color-light-bg: #FAF6ED;
+  --color-main-text: #1E293B;
+  --color-secondary-text: #64748B;
+}
+
+/* Base Container across Breakpoints */
+.datavora-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .datavora-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .datavora-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .datavora-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .datavora-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Card Styling across Breakpoints */
+.datavora-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.datavora-card:hover {
+  transform: translateY(-4px);
+  border-color: #C59B27;
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+}
+
+@media (max-width: 1024px) {
+  .datavora-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .datavora-card {
+    padding: 1.35rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .datavora-card {
+    padding: 1.125rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .datavora-card {
+    padding: 0.875rem;
+  }
+}
+
+/* Data Badge Pill */
+.datavora-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: #FAF6ED;
+  color: #94721C;
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .datavora-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.625rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Header Sticky Effect */
+.datavora-header.is-scrolled {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Buttons */
+.is-style-datavora-primary a,
+.is-style-datavora-primary button {
+  background: linear-gradient(135deg, #E6C564 0%, #C59B27 50%, #B8860B 100%) !important;
+  color: #090E17 !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.625rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.is-style-datavora-primary a:hover,
+.is-style-datavora-primary button:hover {
+  filter: brightness(1.08) !important;
+  box-shadow: 0 6px 16px rgba(184, 134, 11, 0.35) !important;
+}
+
+.is-style-datavora-outline a,
+.is-style-datavora-outline button {
+  background-color: transparent !important;
+  color: #102A43 !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.625rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px;
+  transition: all 0.2s ease !important;
+}
+
+.is-style-datavora-outline a:hover,
+.is-style-datavora-outline button:hover {
+  border-color: #C59B27 !important;
+  color: #94721C !important;
+  background-color: #FAF6ED !important;
+}
+
+/* Responsive Grid & Columns Adjustments */
+@media (max-width: 781px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile) {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1.25rem 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wp-block-buttons {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .wp-block-buttons > .wp-block-button,
+  .wp-block-buttons > .wp-block-button > a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
