@@ -78,7 +78,7 @@ export const DataCleaningDemo: React.FC = () => {
             Perbandingan Kualitas Dataset: Sebelum vs Sesudah
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 mt-1">
-            Lihat bagaimana pipeline otomatis DATAVORA mengeliminasi duplikasi dan menstandarisasi format data bisnis Anda.
+            Lihat bagaimana pipeline otomatis Yunus Shifa Muntari mengeliminasi duplikasi dan menstandarisasi format data bisnis Anda.
           </p>
         </div>
 

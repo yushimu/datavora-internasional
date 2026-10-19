@@ -62,7 +62,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Corporate Badge with Dark Gold Trim */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF6ED] border border-[#C59B27]/40 text-[#94721C] text-[11px] sm:text-xs font-bold tracking-wide uppercase shadow-xs">
               <span className="flex h-2 w-2 rounded-full bg-[#C59B27] animate-ping" />
-              <span>Data Management &amp; Analytics Specialist</span>
+              <span>Yunus Shifa Muntari &bull; Data Management &amp; Analytics</span>
             </div>
 
             {/* Main Headline (Optimized for Mobile & Desktop) */}
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Supporting Text */}
             <p className="text-xs sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
-              <strong>DATAVORA INDONESIA</strong> membantu bisnis dan organisasi mengorganisir, membersihkan, menganalisis, mengotomasi, dan mentransformasi data menjadi solusi bisnis cerdas melalui manajemen data profesional, otomatisasi spreadsheet, dan analitik mendalam.
+              <strong>Yunus Shifa Muntari</strong> adalah praktisi spesialis solusi data yang membantu bisnis dan organisasi mengorganisir, membersihkan, menganalisis, mengotomasi, dan mentransformasi data menjadi solusi cerdas melalui tata kelola data profesional, otomatisasi spreadsheet, dan analitik mendalam.
             </p>
 
             {/* CTA Buttons */}
@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 onClick={onExploreServices}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm text-[#0F172A] bg-white hover:bg-[#FAF6ED] border border-slate-300 hover:border-[#C59B27] transition-all duration-150 shadow-xs"
               >
-                <span>Eksplorasi Layanan Kami</span>
+                <span>Eksplorasi Keahlian &amp; Layanan</span>
               </button>
             </div>
 
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#C59B27] flex-shrink-0" />
-                <span>Alur Kerja Disesuaikan Bisnis</span>
+                <span>Alur Kerja Disesuaikan Kebutuhan</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#C59B27] flex-shrink-0" />
@@ -124,7 +124,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  <span className="font-mono text-xs text-amber-200/80 ml-1">datavora.engine</span>
+                  <span className="font-mono text-xs text-amber-200/80 ml-1">yunus.analytics</span>
                 </div>
                 <span className="text-[10px] font-semibold bg-amber-950/80 text-[#E6C564] border border-[#C59B27]/40 px-2 py-0.5 rounded-full flex items-center gap-1 font-mono">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#E6C564] animate-pulse" />

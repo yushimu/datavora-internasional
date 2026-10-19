@@ -58,7 +58,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF6ED] border border-[#C59B27]/40 text-[#94721C] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
             <Layers className="w-3.5 h-3.5 text-[#C59B27]" />
-            <span>Layanan Utama DATAVORA</span>
+            <span>Layanan &amp; Keahlian Yunus Shifa Muntari</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             Solusi Data Komprehensif untuk Setiap Kebutuhan Bisnis

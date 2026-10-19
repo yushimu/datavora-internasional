@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Ruang - Specialty Coffee & Cozy Space</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ruang-dark': '#15251F',      /* Dark forest green background from logo */
+                        'ruang-accent': '#C0A068',    /* Elegant warm gold/brass tone */
+                        'ruang-accent-light': '#D8BA84',
+                        'ruang-cream': '#F9F7F2',     /* Soft cream light background */
+                        'ruang-warm-card': '#20332B',
+                        'coffee-roast': '#3D2314',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(180deg, rgba(21, 37, 31, 0.85) 0%, rgba(21, 37, 31, 0.95) 100%);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 30%, rgba(192, 160, 104, 0.15) 0%, rgba(21, 37, 31, 1) 70%);
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(192, 160, 104, 0.2);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #15251F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D473C;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C0A068;
+        }
+    </style>
+</head>
+<body class="bg-ruang-dark text-slate-200 font-sans antialiased selection:bg-ruang-accent selection:text-ruang-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-ruang-dark/90 backdrop-blur-md border-b border-ruang-accent/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 text-ruang-accent transition-transform duration-300 group-hover:scale-105">
+                        <!-- Precise SVG Vector of Logo -->
+                        <svg viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+                            <path d="M 20 78 A 30 30 0 0 1 80 78" stroke-width="2" />
+                            <line x1="10" y1="78" x2="90" y2="78" stroke-width="2.5" />
+                            <path d="M 35 52 C 35 68 65 68 65 52 Z" />
+                            <path d="M 65 55 C 75 55 77 62 67 65" />
+                            <path d="M 50 52 C 50 35 40 30 42 16" />
+                            <path d="M 42 16 C 48 24 55 22 50 52" />
+                            <path d="M 50 38 C 58 32 62 25 58 20 C 52 22 49 30 50 38 Z" />
+                            <path d="M 46 30 C 38 26 34 18 40 15 C 44 18 46 24 46 30 Z" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl tracking-wider font-semibold text-ruang-accent uppercase">Kopi Ruang</span>
+                        <span class="text-[9px] tracking-[0.25em] text-slate-400 font-light -mt-1">SPECIALTY SHOP</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-300 hover:text-ruang-accent transition">Tentang Kami</a>
+                    <a href="#menu" class="text-slate-300 hover:text-ruang-accent transition">Menu Specialty</a>
+                    <a href="#vibe" class="text-slate-300 hover:text-ruang-accent transition">Suasana</a>
+                    <a href="#location" class="text-slate-300 hover:text-ruang-accent transition">Lokasi</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#cta" class="px-5 py-2.5 rounded-full bg-ruang-accent text-ruang-dark font-semibold text-sm hover:bg-ruang-accent-light transition shadow-lg shadow-ruang-accent/10 flex items-center gap-2">
+                        <span>Kunjungi / Order</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-ruang-accent focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ruang-dark border-b border-ruang-accent/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-ruang-accent">Tentang Kami</a>
+            <a href="#menu" class="block py-2 text-slate-300 hover:text-ruang-accent">Menu Specialty</a>
+            <a href="#vibe" class="block py-2 text-slate-300 hover:text-ruang-accent">Suasana</a>
+            <a href="#location" class="block py-2 text-slate-300 hover:text-ruang-accent">Lokasi</a>
+            <a href="#cta" class="block w-full text-center py-3 rounded-xl bg-ruang-accent text-ruang-dark font-semibold mt-4">Kunjungi / Order Online</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center hero-gradient overflow-hidden">
+        <!-- Subtle Ambient Background Graphic -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+            <div class="w-[600px] h-[600px] border border-ruang-accent rounded-full animate-pulse"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ruang-accent/10 border border-ruang-accent/30 text-ruang-accent text-xs font-semibold tracking-wider uppercase">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>Specialty Coffee Shop & Workspace</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                        Ruang Nyaman untuk <span class="italic text-ruang-accent font-normal">Karya</span> & <span class="text-transparent bg-clip-text bg-gradient-to-r from-ruang-accent via-ruang-accent-light to-amber-100">Cita Rasa</span> Terbaik.
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Menyajikan specialty coffee dari biji pilihan lokal dalam suasana minimalis dan hangat. Tempat ideal untuk produktivitas remote work maupun hangatnya percakapan.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#cta" class="w-full sm:w-auto px-8 py-4 rounded-full bg-ruang-accent text-ruang-dark font-bold text-base hover:bg-ruang-accent-light transition shadow-xl shadow-ruang-accent/20 flex items-center justify-center gap-2">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            <span>Kunjungi Café Kami</span>
+                        </a>
+                        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-ruang-warm-card border border-ruang-accent/30 text-slate-200 font-semibold text-base hover:border-ruang-accent transition flex items-center justify-center gap-2">
+                            <i data-lucide="coffee" class="w-5 h-5 text-ruang-accent"></i>
+                            <span>Lihat Menu</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges / Proof -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-1.5 text-amber-400 font-bold text-xl">
+                                <span>4.8</span>
+                                <div class="flex text-amber-400">
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400">Google Rating (200+ Review)</p>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="text-white font-bold text-xl">200+</div>
+                            <p class="text-xs text-slate-400">Penikmat Kopi / Hari</p>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 space-y-1">
+                            <div class="text-ruang-accent font-bold text-xl flex items-center gap-1">
+                                <i data-lucide="wifi" class="w-5 h-5"></i> 100 Mbps
+                            </div>
+                            <p class="text-xs text-slate-400">WiFi Cepat & Stable</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column (Visual Showcase) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card Frame -->
+                        <div class="relative rounded-3xl overflow-hidden border border-ruang-accent/30 bg-ruang-warm-card gold-border-glow group">
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80" alt="Atmosphere Kopi Ruang" class="w-full h-[480px] object-cover object-center group-hover:scale-105 transition duration-700">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-ruang-dark via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-ruang-dark/80 backdrop-blur-md border border-ruang-accent/20">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-3 rounded-xl bg-ruang-accent/20 text-ruang-accent">
+                                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-medium text-sm">Specialty Pour Over</h4>
+                                        <p class="text-xs text-slate-400">Single Origin Beans Indonesia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Floating Card -->
+                        <div class="hidden sm:flex absolute -top-6 -left-6 p-4 rounded-2xl bg-ruang-dark/95 border border-ruang-accent/30 backdrop-blur-md shadow-2xl items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                            <span class="text-xs font-medium text-slate-200">Open Daily: 08:00 - 23:00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="about" class="py-24 bg-ruang-dark border-t border-ruang-accent/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-ruang-accent">Mengapa Kopi Ruang</h2>
+                <p class="font-serif text-3xl sm:text-4xl font-semibold text-white">Didesain Spesifik untuk Kenyamanan Anda</p>
+                <div class="w-12 h-0.5 bg-ruang-accent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-ruang-warm-card/60 border border-ruang-accent/10 hover:border-ruang-accent/40 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-ruang-accent/10 border border-ruang-accent/20 flex items-center justify-center text-ruang-accent mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="bean" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-3">Biji Kopi Lokal Berkualitas</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Kurasi biji kopi pilihan dari petani lokal Nusantara. Diroast dengan presisi untuk memunculkan cita rasa unik dan kaya di setiap tegukan.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-ruang-warm-card/60 border border-ruang-accent/10 hover:border-ruang-accent/40 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-ruang-accent/10 border border-ruang-accent/20 flex items-center justify-center text-ruang-accent mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="laptop" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-3">Work-Friendly & WiFi Cepat</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Dilengkapi colokan di setiap meja, kursi ergonomis, dan koneksi internet super cepat. Ideal untuk remote work, tugas kuliah, atau meeting.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-ruang-warm-card/60 border border-ruang-accent/10 hover:border-ruang-accent/40 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-ruang-accent/10 border border-ruang-accent/20 flex items-center justify-center text-ruang-accent mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="armchair" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-3">Desain Minimal & Aesthetic</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Interior bergaya hangat & minimalis dengan pencahayaan alami yang pas. Menciptakan vibe santai yang cozy untuk hangout bareng teman.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlights Section -->
+    <section id="menu" class="py-24 bg-ruang-dark/95 relative border-t border-ruang-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-ruang-accent mb-2">Pilihan Terbaik</h2>
+                    <p class="font-serif text-3xl sm:text-4xl font-semibold text-white">Menu Favorit Di Kopi Ruang</p>
+                </div>
+                <p class="text-slate-400 max-w-md text-sm">
+                    Dibuat segar setiap hari oleh barista profesional dan pastry chef kami untuk menemani hari Anda.
+                </p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Coffee -->
+                <div class="bg-ruang-warm-card rounded-2xl p-6 border border-ruang-accent/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Espresso & Manual Brew" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-ruang-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-ruang-accent font-semibold border border-ruang-accent/20">Specialty Coffee</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Espresso & Brew</h3>
+                        <p class="text-slate-400 text-xs mb-6">Pilihan espresso-based dan V60 manual brew dengan variasi beans lokal terbaik.</p>
+                        
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Flat White / Cappuccino</span>
+                                <span class="font-semibold text-ruang-accent">28k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Manual Brew (V60 / Japanese)</span>
+                                <span class="font-semibold text-ruang-accent">32k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300">
+                                <span>Americano / Long Black</span>
+                                <span class="font-semibold text-ruang-accent">25k</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2: Signature Drinks -->
+                <div class="bg-ruang-warm-card rounded-2xl p-6 border border-ruang-accent/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80" alt="Signature Drinks" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-ruang-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-ruang-accent font-semibold border border-ruang-accent/20">House Special</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Signature Drinks</h3>
+                        <p class="text-slate-400 text-xs mb-6">Racikan unik khas Kopi Ruang dengan perpaduan rasa manis & creamy yang pas.</p>
+                        
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Es Kopi Ruang (Aren Creamy)</span>
+                                <span class="font-semibold text-ruang-accent">26k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Pandan Latte Delight</span>
+                                <span class="font-semibold text-ruang-accent">30k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300">
+                                <span>Berry Cold Brew Fizz</span>
+                                <span class="font-semibold text-ruang-accent">32k</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 3: Homemade Pastries -->
+                <div class="bg-ruang-warm-card rounded-2xl p-6 border border-ruang-accent/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Homemade Pastries" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-ruang-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-ruang-accent font-semibold border border-ruang-accent/20">Freshly Baked</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Homemade Pastries</h3>
+                        <p class="text-slate-400 text-xs mb-6">Dipanggang segar setiap pagi untuk pasangan sempurna segelas kopi Anda.</p>
+                        
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Butter Croissant</span>
+                                <span class="font-semibold text-ruang-accent">24k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300 pb-2 border-b border-slate-800">
+                                <span>Pain Au Chocolat</span>
+                                <span class="font-semibold text-ruang-accent">27k</span>
+                            </li>
+                            <li class="flex justify-between items-center text-slate-300">
+                                <span>Almond Cinnamon Roll</span>
+                                <span class="font-semibold text-ruang-accent">28k</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Vibe & Audience Section -->
+    <section id="vibe" class="py-24 bg-ruang-dark relative border-t border-ruang-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-ruang-accent">Suasana Café</h2>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-semibold text-white">Tempat Terbaik untuk Setiap Momen Anda</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Kami merancang Kopi Ruang khusus untuk memenuhi kebutuhan gaya hidup Anda. Mulai dari produktivitas kerja hingga waktu santai berkualitas.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-ruang-accent/10 text-ruang-accent mt-1">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-base">Mahasiswa & Remote Workers</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Suasana tenang, koneksi stabil, dan ambience yang memicu fokus karya.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-ruang-accent/10 text-ruang-accent mt-1">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-base">Young Professionals</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Tempat bertukar ide atau sekadar rehat sejenak dari rutinitas kerja.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-ruang-accent/10 text-ruang-accent mt-1">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-base">Coffee Enthusiasts</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Eksplorasi cita rasa specialty beans berkualitas tinggi bersama barista kami.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Photo Masonry -->
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden border border-ruang-accent/20 h-64">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Cafe Work Interior" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-ruang-accent/20 h-44">
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Coffee Brewing" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="rounded-2xl overflow-hidden border border-ruang-accent/20 h-44">
+                            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Coffee Hangout" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-ruang-accent/20 h-64">
+                            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Warm Vibes Coffee" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof & Reviews -->
+    <section class="py-20 bg-ruang-warm-card/40 border-t border-ruang-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 mb-4 text-amber-400">
+                <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                <span class="text-white font-bold text-lg ml-2">4.8 / 5.0</span>
+            </div>
+            <h2 class="font-serif text-3xl font-semibold text-white mb-12">Kata Mereka Tentang Kopi Ruang</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <!-- Testimonial 1 -->
+                <div class="p-6 rounded-2xl bg-ruang-dark border border-ruang-accent/10 space-y-4">
+                    <p class="text-slate-300 text-sm italic">"Tempat favorit buat WFC. Wifi super ngebut, colokan banyak, dan Es Kopi Ruangnya beneran nagih banget!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-ruang-accent/20 text-ruang-accent flex items-center justify-center font-bold text-sm">
+                            RD
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-medium">Reza Dimas</h4>
+                            <p class="text-xs text-slate-500">Software Engineer / Remote Worker</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-6 rounded-2xl bg-ruang-dark border border-ruang-accent/10 space-y-4">
+                    <p class="text-slate-300 text-sm italic">"Ambiencenya tenang dan estetik banget. Manual brew V60 biji lokalnya juara. Pelayanan baristanya juga ramah sekali."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-ruang-accent/20 text-ruang-accent flex items-center justify-center font-bold text-sm">
+                            AN
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-medium">Anisa Nurdin</h4>
+                            <p class="text-xs text-slate-500">Coffee Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-6 rounded-2xl bg-ruang-dark border border-ruang-accent/10 space-y-4">
+                    <p class="text-slate-300 text-sm italic">"Croissantnya renyah dan lembut di dalam. Cocok banget dipadu sama Flat White panas pas sore-sore."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-ruang-accent/20 text-ruang-accent flex items-center justify-center font-bold text-sm">
+                            BA
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-medium">Bagas Ariyanto</h4>
+                            <p class="text-xs text-slate-500">Mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Location Section -->
+    <section id="cta" class="py-24 bg-ruang-dark border-t border-ruang-accent/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl bg-gradient-to-br from-ruang-warm-card via-ruang-dark to-ruang-warm-card p-8 sm:p-12 border border-ruang-accent/30 relative overflow-hidden shadow-2xl">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-ruang-accent">Kunjungi Atau Pesan</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">Siap Menikmati Cita Rasa Kopi Ruang?</h2>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Datang langsung ke café kami untuk menikmati suasana cozy atau pesan online dengan mudah ke lokasi Anda.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <button onclick="openModal('visit')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-ruang-accent text-ruang-dark font-bold hover:bg-ruang-accent-light transition shadow-lg flex items-center justify-center gap-2">
+                                <i data-lucide="navigation" class="w-5 h-5"></i>
+                                <span>Petunjuk Lokasi</span>
+                            </button>
+                            <button onclick="openModal('order')" class="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-ruang-accent text-ruang-accent font-semibold hover:bg-ruang-accent/10 transition flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                                <span>Pesan Online (GoFood/Grab)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hours and Info Card -->
+                    <div id="location" class="bg-ruang-dark/90 p-6 sm:p-8 rounded-2xl border border-ruang-accent/20 space-y-6">
+                        <h3 class="font-serif text-xl font-semibold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-ruang-accent"></i> Jam Operasional & Alamat
+                        </h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Senin - Jumat</span>
+                                <span class="font-medium text-ruang-accent">08.00 - 23.00 WIB</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Sabtu - Minggu</span>
+                                <span class="font-medium text-ruang-accent">08.00 - 24.00 WIB</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-800 space-y-2 text-sm text-slate-300">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-ruang-accent shrink-0 mt-0.5"></i>
+                                <span>Jl. Senopati No. 45, Kebayoran Baru, Jakarta Selatan</span>
+                            </div>
+                            <div class="flex items-center gap-2 pt-1">
+                                <i data-lucide="phone" class="w-5 h-5 text-ruang-accent shrink-0"></i>
+                                <span>+62 812-3456-7890</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ruang-dark border-t border-slate-800/80 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 text-ruang-accent">
+                        <svg viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+                            <path d="M 20 78 A 30 30 0 0 1 80 78" stroke-width="2" />
+                            <line x1="10" y1="78" x2="90" y2="78" stroke-width="2.5" />
+                            <path d="M 35 52 C 35 68 65 68 65 52 Z" />
+                            <path d="M 65 55 C 75 55 77 62 67 65" />
+                            <path d="M 50 52 C 50 35 40 30 42 16" />
+                            <path d="M 42 16 C 48 24 55 22 50 52" />
+                            <path d="M 50 38 C 58 32 62 25 58 20 C 52 22 49 30 50 38 Z" />
+                            <path d="M 46 30 C 38 26 34 18 40 15 C 44 18 46 24 46 30 Z" />
+                        </svg>
+                    </div>
+                    <span class="font-serif text-lg text-white font-semibold uppercase tracking-wider">Kopi Ruang</span>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex items-center space-x-6 text-slate-400">
+                    <a href="#" class="hover:text-ruang-accent transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-ruang-accent transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-ruang-accent transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 Kopi Ruang Specialty Shop. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Action Modal -->
+    <div id="action-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-ruang-warm-card border border-ruang-accent/30 rounded-2xl max-w-md w-full p-6 space-y-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div id="modal-content">
+                <!-- Dynamic Content Loaded via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('action-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(type) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (type === 'visit') {
+                modalContent.innerHTML = `
+                    <div class="text-center space-y-4">
+                        <div class="w-12 h-12 rounded-full bg-ruang-accent/20 text-ruang-accent mx-auto flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white">Petunjuk Lokasi</h3>
+                        <p class="text-slate-300 text-sm">Kunjungi café kami di lokasi berikut:</p>
+                        <div class="p-4 bg-ruang-dark rounded-xl text-left border border-slate-800 text-xs text-slate-300 space-y-1">
+                            <p class="font-bold text-white text-sm">Kopi Ruang Specialty</p>
+                            <p>Jl. Senopati No. 45, Kebayoran Baru, Jakarta Selatan</p>
+                            <p class="text-ruang-accent pt-1">★ 4.8 Google Maps</p>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="block w-full py-3 rounded-full bg-ruang-accent text-ruang-dark font-bold text-sm hover:bg-ruang-accent-light transition">
+                            Buka di Google Maps
+                        </a>
+                    </div>
+                `;
+            } else if (type === 'order') {
+                modalContent.innerHTML = `
+                    <div class="text-center space-y-4">
+                        <div class="w-12 h-12 rounded-full bg-ruang-accent/20 text-ruang-accent mx-auto flex items-center justify-center">
+                            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white">Pesan Online</h3>
+                        <p class="text-slate-300 text-sm">Pilih layanan delivery favorit Anda:</p>
+                        <div class="space-y-3 pt-2">
+                            <a href="#" onclick="alert('Mengarahkan ke GoFood...')" class="flex items-center justify-between p-3.5 bg-ruang-dark border border-slate-800 hover:border-ruang-accent rounded-xl text-white transition text-sm">
+                                <span class="font-medium">Pesan via GoFood</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-ruang-accent"></i>
+                            </a>
+                            <a href="#" onclick="alert('Mengarahkan ke GrabFood...')" class="flex items-center justify-between p-3.5 bg-ruang-dark border border-slate-800 hover:border-ruang-accent rounded-xl text-white transition text-sm">
+                                <span class="font-medium">Pesan via GrabFood</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-ruang-accent"></i>
+                            </a>
+                            <a href="#" onclick="alert('Mengarahkan ke WhatsApp...')" class="flex items-center justify-between p-3.5 bg-ruang-dark border border-slate-800 hover:border-ruang-accent rounded-xl text-white transition text-sm">
+                                <span class="font-medium">Direct Order (WhatsApp)</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-ruang-accent"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close Modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

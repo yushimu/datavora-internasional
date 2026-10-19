@@ -97,7 +97,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onConsult })
                   </div>
                   <div>
                     <span className="font-bold text-emerald-600 uppercase text-[10px] block mb-1">
-                      Solusi DATAVORA:
+                      Solusi Yunus Shifa Muntari:
                     </span>
                     <p className="text-slate-600 line-clamp-2">{project.solution}</p>
                   </div>
@@ -194,7 +194,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onConsult })
             <div className="mb-6">
               <h4 className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>Arsitektur Solusi DATAVORA:</span>
+                <span>Arsitektur Solusi Yunus Shifa Muntari:</span>
               </h4>
               <p className="text-sm text-slate-600 leading-relaxed bg-emerald-50/40 p-4 rounded-xl border border-emerald-100">
                 {activeModalProject.solution}

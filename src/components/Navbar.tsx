@@ -33,11 +33,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navItems: { label: string; page: PageView }[] = [
     { label: 'Beranda', page: 'home' },
-    { label: 'Tentang Kami', page: 'about' },
-    { label: 'Layanan', page: 'services' },
-    { label: 'Solusi Bisnis', page: 'solutions' },
+    { label: 'Tentang Saya', page: 'about' },
+    { label: 'Produk', page: 'products' },
     { label: 'Portofolio', page: 'portfolio' },
-    { label: 'Artikel & Wawasan', page: 'blog' },
     { label: 'Kontak', page: 'contact' },
   ];
 
@@ -68,13 +66,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <div className="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5 leading-tight">
-                <span>DATAVORA</span>
+                <span>Yunus Shifa Muntari</span>
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase bg-amber-500/15 text-[#E6C564] px-1.5 py-0.5 rounded border border-[#C59B27]/40">
-                  INDONESIA
+                  PORTFOLIO
                 </span>
               </div>
               <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-medium text-slate-400">
-                Turning Data Into Business Solutions
+                Data Management &amp; Analytics Specialist
               </p>
             </div>
           </div>

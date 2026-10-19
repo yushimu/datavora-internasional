@@ -30,7 +30,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
 
   const constructWaMessage = () => {
     return encodeURIComponent(
-      `Halo DATAVORA INDONESIA,\n\nNama: ${fullName || 'Calon Klien'}\nPerusahaan: ${companyName || 'Bisnis / Organisasi'}\nEmail: ${email || '-'}\nLayanan yang Dibutuhkan: ${selectedService}\nSektor Industri: ${selectedIndustry}\n\nDetail Kebutuhan:\n${notes || 'Ingin konsultasi penjadwalan evaluasi data.'}\n\nMohon info ketersediaan jadwal konsultasi awal.`
+      `Halo Yunus Shifa Muntari,\n\nNama: ${fullName || 'Calon Klien'}\nPerusahaan: ${companyName || 'Bisnis / Organisasi'}\nEmail: ${email || '-'}\nLayanan yang Dibutuhkan: ${selectedService}\nSektor Industri: ${selectedIndustry}\n\nDetail Kebutuhan:\n${notes || 'Ingin konsultasi evaluasi data.'}\n\nMohon info ketersediaan jadwal konsultasi.`
     );
   };
 
@@ -53,7 +53,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
             Konsultasikan Kebutuhan Solusi Data Anda
           </h2>
           <p className="text-slate-600 text-xs sm:text-base mt-2 max-w-xl mx-auto leading-relaxed">
-            Diskusikan tata kelola data, otomatisasi spreadsheet, atau analitik Anda bersama praktisi DATAVORA. Tanpa komitmen awal dan kerahasiaan data (NDA) terjamin penuh.
+            Diskusikan tata kelola data, otomatisasi spreadsheet, atau analitik Anda bersama Yunus Shifa Muntari. Tanpa komitmen awal dan kerahasiaan data (NDA) terjamin penuh.
           </p>
         </div>
 
@@ -63,13 +63,13 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
           <div className="lg:col-span-5 bg-[#0F172A] text-white p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800">
             <div>
               <div className="text-[11px] font-bold text-[#E6C564] uppercase tracking-widest mb-1.5">
-                DATAVORA INDONESIA
+                Yunus Shifa Muntari
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3 leading-snug">
                 Turning Data Into Business Solutions.
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                Kami siap membantu Anda membedah inefisiensi alur kerja dan merancang sistem data yang rapi dan terukur.
+                Siap membantu Anda membedah inefisiensi alur kerja dan merancang sistem data yang rapi dan terukur.
               </p>
 
               <div className="space-y-3.5 text-xs text-slate-300 border-t border-slate-800 pt-5">

@@ -70,7 +70,7 @@ export const WhyChooseUs: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5 text-blue-600" />
-            <span>Keunggulan Kompetitif DATAVORA</span>
+            <span>Keunggulan Profesional Yunus Shifa Muntari</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
             More Than Data Services. We Deliver Business Solutions.

@@ -1,11 +1,17 @@
 export type PageView = 
   | 'home' 
   | 'about' 
-  | 'services' 
-  | 'solutions' 
+  | 'products'
+  | 'services'
   | 'portfolio' 
-  | 'blog' 
   | 'contact';
+
+export type PortfolioTabId = 
+  | 'project' 
+  | 'web-developer' 
+  | 'problem-solving' 
+  | 'karya' 
+  | 'tools';
 
 export interface ServiceItem {
   id: string;

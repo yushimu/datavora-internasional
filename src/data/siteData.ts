@@ -1,15 +1,15 @@
 import { ServiceItem, ProblemSolutionItem, PortfolioProject, BlogPost, AuditQuestion } from '../types';
 
 export const COMPANY_INFO = {
-  name: 'DATAVORA INDONESIA',
-  legalName: 'PT DATAVORA SOLUSI NUSANTARA (Placeholder)',
-  tagline: 'Turning Data Into Business Solutions',
+  name: 'Yunus Shifa Muntari',
+  role: 'Data Management & Analytics Specialist',
+  tagline: 'Personal Portfolio & Data Solutions Specialist',
   altTagline: 'Transforming Business Data Into Better Decisions',
-  description: 'DATAVORA INDONESIA adalah perusahaan solusi data profesional yang membantu bisnis dan organisasi mentransformasi data menjadi informasi bisnis yang terstruktur, akurat, bernilai, dan siap dieksekusi.',
+  description: 'Portfolio pribadi Yunus Shifa Muntari - Profesional data management dan analitik yang membantu bisnis dan organisasi mentransformasi data menjadi informasi bisnis yang terstruktur, akurat, bernilai, dan siap dieksekusi.',
   mission: 'Membantu bisnis membuka potensi penuh data mereka melalui manajemen data yang akurat, analisis cerdas, otomatisasi alur kerja, dan solusi digital yang inovatif.',
   vision: 'Menjadi mitra utama bagi dunia usaha di Indonesia dalam mewujudkan ekosistem operasional berbasis data yang efisien, transparan, dan berdaya saing tinggi.',
-  email: 'kontak@datavora.co.id',
-  phone: '+62 812-XXXX-XXXX (Placeholder)',
+  email: 'yunus.shifa@example.com',
+  phone: '+62 812-XXXX-XXXX',
   whatsappNumber: '6281234567890',
   address: 'Jakarta / Operasional Jarak Jauh Seluruh Indonesia',
   workHours: 'Senin - Jumat: 08:30 - 17:30 WIB',
@@ -39,7 +39,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     title: 'Data Cleaning & Correction',
     tagline: 'Pembersihan anomali, eliminasi duplikasi, dan perbaikan inkonsistensi dataset.',
     shortDesc: 'Mengidentifikasi duplikat, memperbaiki inkonsistensi format, menstandarkan penulisan, dan meningkatkan akurasi data hingga level tertinggi.',
-    fullDesc: 'Dataset kotor adalah penyebab utama kegagalan keputusan bisnis. Layanan Data Cleaning DATAVORA mendeteksi rekaman ganda menggunakan algoritma pencocokan cerdas, memperbaiki kesalahan ketik nama pelanggan/wilayah, mengoreksi format nomor kontak, dan merekonstruksi kolom yang rusak.',
+    fullDesc: 'Dataset kotor adalah penyebab utama kegagalan keputusan bisnis. Layanan Data Cleaning Yunus Shifa Muntari mendeteksi rekaman ganda menggunakan algoritma pencocokan cerdas, memperbaiki kesalahan ketik nama pelanggan/wilayah, mengoreksi format nomor kontak, dan merekonstruksi kolom yang rusak.',
     deliverables: [
       'Dataset master yang telah dide-duplikasi (0% duplikasi identitas)',
       'Standarisasi nomor telepon (+62 / format baku eceran)',
@@ -258,7 +258,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     isDemo: true,
     summary: 'Otomatisasi penggabungan laporan transaksi dari 4 kanal marketplace berbeda menjadi satu database master yang tervalidasi.',
     problem: 'Klien e-commerce dengan rata-rata 3.500 transaksi per minggu mencatat penjualan dari 4 marketplace berbeda secara terpisah. Rekap manual setiap sore memakan waktu 4 jam dan kerap terjadi selisih stok fisik hingga 12% akibat perbedaan format penamaan produk antar kanal.',
-    solution: 'DATAVORA merancang sistem konsolidasi otomatis berbasis Google Sheets & Apps Script: formula otomatis menstandarkan SKU produk yang berbeda nama, memvalidasi nomor resi pengiriman, mendeteksi pesanan yang dibatalkan, dan menghasilkan laporan laba kotor harian secara otomatis.',
+    solution: 'Yunus Shifa Muntari merancang sistem konsolidasi otomatis berbasis Google Sheets & Apps Script: formula otomatis menstandarkan SKU produk yang berbeda nama, memvalidasi nomor resi pengiriman, mendeteksi pesanan yang dibatalkan, dan menghasilkan laporan laba kotor harian secara otomatis.',
     deliverables: [
       'Master Sheet Konsolidasi Otomatis Multi-Channel',
       'Modul pencocokan kamus SKU (Product Catalog Alias Engine)',
@@ -279,7 +279,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     isDemo: true,
     summary: 'Pembersihan mendalam data pelanggan warisan: de-duplikasi, validasi format nomor WhatsApp, dan standarisasi alamat wilayah.',
     problem: 'Sebuah perusahaan logistik memiliki database master pelanggan yang terakumulasi selama 6 tahun dengan lebih dari 65.000 entri. Data penuh duplikasi (klien yang sama terdaftar 3-5 kali), nomor kontak tanpa kode negara (+62), penulisan nama kota bervariasi, sehingga pesan promosi dan penagihan sering salah sasaran.',
-    solution: 'DATAVORA membangun alur pembersihan data bertahap menggunakan Python dan script regex: de-duplikasi identitas menggunakan fuzzy logic, standarisasi format nomor ponsel internasional, penyelarasan nama kota dan kodepos terhadap master data geografis Indonesia, serta verifikasi kelengkapan kolom.',
+    solution: 'Yunus Shifa Muntari membangun alur pembersihan data bertahap menggunakan Python dan script regex: de-duplikasi identitas menggunakan fuzzy logic, standarisasi format nomor ponsel internasional, penyelarasan nama kota dan kodepos terhadap master data geografis Indonesia, serta verifikasi kelengkapan kolom.',
     deliverables: [
       'Master Customer Database 100% bersih dan bebas duplikasi',
       'Format nomor WhatsApp siap blast (standar E.164 +62)',
@@ -321,7 +321,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     isDemo: true,
     summary: 'Otomatisasi siklus penerbitan faktur dari input penjualan hingga pembuatan dokumen PDF dan email konfirmasi ke klien.',
     problem: 'Staf administrasi menghabiskan waktu 20 menit per faktur untuk mengisi template Word, mengekspor ke PDF, melampirkan ke email manual, dan mencatat status bayar di buku manual. Saat volume tagihan mencapai 300 transaksi per bulan, sering terjadi faktur telat terbit atau terlewat ditagih.',
-    solution: 'DATAVORA mengembangkan modul otomatisasi berbasis Google Apps Script: staf cukup menginput data ringkas pada form Google Sheets, sistem secara otomatis men-generate PDF faktur berformat resmi dengan nomor urut unik, menyimpannya di Google Drive terenkripsi, mengirim email tagihan profesional ke kontak klien, dan menjadwalkan notifikasi jatuh tempo.',
+    solution: 'Yunus Shifa Muntari mengembangkan modul otomatisasi berbasis Google Apps Script: staf cukup menginput data ringkas pada form Google Sheets, sistem secara otomatis men-generate PDF faktur berformat resmi dengan nomor urut unik, menyimpannya di Google Drive terenkripsi, mengirim email tagihan profesional ke kontak klien, dan menjadwalkan notifikasi jatuh tempo.',
     deliverables: [
       'Generator Faktur & Tanda Terima Otomatis 1-Klik',
       'Template PDF profesional dengan kop surat resmi perusahaan',

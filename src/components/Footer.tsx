@@ -35,12 +35,12 @@ export const Footer: React.FC<FooterProps> = ({
                 <Database className="w-5 h-5" />
               </div>
               <div className="font-extrabold text-lg text-white tracking-tight">
-                DATAVORA <span className="text-[#E6C564] font-bold text-xs uppercase px-1.5 py-0.5 rounded bg-amber-500/10 border border-[#C59B27]/40">INDONESIA</span>
+                Yunus Shifa Muntari <span className="text-[#E6C564] font-bold text-xs uppercase px-1.5 py-0.5 rounded bg-amber-500/10 border border-[#C59B27]/40">PORTFOLIO</span>
               </div>
             </div>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 pr-2">
-              Perusahaan solusi data profesional yang membantu bisnis dan organisasi mentransformasi data menjadi informasi bisnis yang terstruktur, akurat, bernilai, dan dapat ditindaklanjuti.
+              Portfolio pribadi spesialis data management dan analitik yang membantu bisnis dan organisasi mentransformasi data menjadi informasi bisnis yang terstruktur, akurat, bernilai, dan dapat ditindaklanjuti.
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-[#C59B27]/40 text-xs font-semibold text-[#E6C564]">
@@ -69,23 +69,15 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onNavigate('about')}
                   className="hover:text-[#E6C564] transition-colors text-left"
                 >
-                  Tentang Kami
+                  Tentang Saya
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('services')}
+                  onClick={() => onNavigate('products')}
                   className="hover:text-[#E6C564] transition-colors text-left"
                 >
-                  Layanan Kami
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('solutions')}
-                  className="hover:text-[#E6C564] transition-colors text-left"
-                >
-                  Solusi Bisnis
+                  Produk
                 </button>
               </li>
               <li>
@@ -98,18 +90,10 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('blog')}
-                  className="hover:text-[#E6C564] transition-colors text-left"
-                >
-                  Artikel &amp; Wawasan
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate('contact')}
                   className="hover:text-[#E6C564] transition-colors text-left"
                 >
-                  Hubungi Kami
+                  Hubungi Saya
                 </button>
               </li>
             </ul>
@@ -177,7 +161,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <div>
                   <div className="text-[10px] text-slate-400 uppercase font-semibold">WhatsApp Diskusi Cepat:</div>
                   <a 
-                    href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=Halo%20DATAVORA%20INDONESIA,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20data%20perusahaan`}
+                    href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=Halo%20Yunus%20Shifa%20Muntari,%20saya%20tertarik%20berkonsultasi%20mengenai%20solusi%20data`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-300 hover:text-emerald-200 transition-colors inline-flex items-center gap-1"
