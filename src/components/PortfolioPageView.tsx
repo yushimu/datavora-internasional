@@ -26,7 +26,9 @@ import {
   ShieldCheck,
   Layers,
   LineChart,
-  Wallet
+  Wallet,
+  FileSpreadsheet,
+  BarChart3
 } from 'lucide-react';
 import { PortfolioTabId } from '../types';
 import { KARYA_ITEMS, KaryaItem } from '../data/karyaData';
@@ -104,6 +106,50 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
 
   const handleClosePreview = () => {
     setIsModalOpen(false);
+  };
+
+  const renderMetricIcon = (iconType?: string) => {
+    switch (iconType) {
+      case 'trending':
+        return <TrendingUp className="w-4 h-4 text-emerald-600" />;
+      case 'dollar':
+        return <DollarSign className="w-4 h-4 text-[#C59B27]" />;
+      case 'pie':
+        return <PieChart className="w-4 h-4 text-rose-600" />;
+      case 'scale':
+        return <Scale className="w-4 h-4 text-blue-600" />;
+      case 'matrix':
+        return <FolderKanban className="w-4 h-4 text-purple-600" />;
+      case 'calendar':
+        return <Clock className="w-4 h-4 text-amber-600" />;
+      case 'chart':
+        return <BarChart3 className="w-4 h-4 text-blue-600" />;
+      case 'check':
+        return <CheckCircle2 className="w-4 h-4 text-emerald-600" />;
+      default:
+        return <CheckCircle2 className="w-4 h-4 text-[#C59B27]" />;
+    }
+  };
+
+  const renderToolIcon = (iconType?: string) => {
+    switch (iconType) {
+      case 'supabase':
+      case 'database':
+        return <Database className="w-5 h-5 text-emerald-600" />;
+      case 'github':
+        return <GitBranch className="w-5 h-5 text-slate-900" />;
+      case 'vercel':
+      case 'globe':
+        return <Globe className="w-5 h-5 text-blue-600" />;
+      case 'spreadsheet':
+        return <FileSpreadsheet className="w-5 h-5 text-emerald-700" />;
+      case 'chart':
+        return <BarChart3 className="w-5 h-5 text-[#C59B27]" />;
+      case 'automation':
+        return <Layers className="w-5 h-5 text-blue-600" />;
+      default:
+        return <FileSpreadsheet className="w-5 h-5 text-emerald-600" />;
+    }
   };
 
   return (
@@ -188,7 +234,7 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                           </span>
                         </div>
                         <span className="text-xs font-medium text-slate-500">
-                          Data &amp; Financial Management System
+                          {project.systemTag || 'Data & Management System'}
                         </span>
                       </div>
 
@@ -202,51 +248,25 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                         {project.summary}
                       </p>
 
-                      {/* 4 Pilar Metrik Finansial Finman */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-6 pt-6 border-t border-slate-200/80">
-                        <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                          <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs mb-1">
-                            <TrendingUp className="w-4 h-4 text-emerald-600" />
-                            <span>1. Omset &amp; Revenue</span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-snug">
-                            Pelacakan omset kotor berkala dan visualisasi tren pemasukan.
-                          </p>
+                      {/* Pilar Metrik Utama Proyek */}
+                      {project.keyMetrics && project.keyMetrics.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-6 pt-6 border-t border-slate-200/80">
+                          {project.keyMetrics.map((metric, mIdx) => (
+                            <div key={mIdx} className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+                              <div className="flex items-center gap-2 text-slate-900 font-bold text-xs mb-1">
+                                {renderMetricIcon(metric.iconType)}
+                                <span>{mIdx + 1}. {metric.label}</span>
+                              </div>
+                              <p className="text-[11px] text-slate-500 leading-snug">
+                                {metric.sublabel}
+                              </p>
+                            </div>
+                          ))}
                         </div>
-
-                        <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                          <div className="flex items-center gap-2 text-[#B8860B] font-bold text-xs mb-1">
-                            <DollarSign className="w-4 h-4 text-[#C59B27]" />
-                            <span>2. Real Profit Margin</span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-snug">
-                            Kalkulasi otomatis laba kotor &amp; margin laba bersih seketika.
-                          </p>
-                        </div>
-
-                        <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                          <div className="flex items-center gap-2 text-rose-700 font-bold text-xs mb-1">
-                            <PieChart className="w-4 h-4 text-rose-600" />
-                            <span>3. Beban Operasional</span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-snug">
-                            Audit rincian OPEX terpetakan untuk cegah kebocoran biaya.
-                          </p>
-                        </div>
-
-                        <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                          <div className="flex items-center gap-2 text-blue-700 font-bold text-xs mb-1">
-                            <Scale className="w-4 h-4 text-blue-600" />
-                            <span>4. Modal &amp; Hutang</span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-snug">
-                            Monitoring kewajiban hutang, jatuh tempo, &amp; modal kerja.
-                          </p>
-                        </div>
-                      </div>
+                      )}
                     </div>
 
-                    {/* Visual Showcase (Gambar Dashboard Finman - Tanpa Klik Preview) */}
+                    {/* Visual Showcase (Gambar Dashboard Proyek) */}
                     <div className="p-6 sm:p-8 lg:p-10 bg-slate-900/95 border-b border-slate-800">
                       <div className="max-w-5xl mx-auto">
                         
@@ -260,12 +280,12 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                               <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
                               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
                               <span className="text-[11px] text-slate-400 font-mono ml-2 hidden sm:inline">
-                                finman.internal/executive-dashboard
+                                {project.mockupUrl || `${project.id}.workspace/dashboard`}
                               </span>
                             </div>
                             <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
                               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                              <span>Live System Snapshot</span>
+                              <span>{project.mockupBadge || 'Live System Snapshot'}</span>
                             </div>
                           </div>
 
@@ -280,7 +300,7 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
 
                           {/* Mockup Caption Footer */}
                           <div className="px-4 py-2.5 bg-slate-900/90 border-t border-slate-800/80 text-center text-xs text-slate-400">
-                            Antarmuka Dasbor Finman: Ringkasan Omset, Perhitungan Laba/Rugi, Evaluasi Beban Operasional, dan Struktur Modal &amp; Hutang
+                            {project.imageCaption || `Antarmuka Dasbor ${project.title}`}
                           </div>
                         </div>
 
@@ -292,12 +312,12 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                       
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         
-                        {/* Kolom 1: Kendala Keuangan Perusahaan */}
+                        {/* Kolom 1: Kendala */}
                         <div className="rounded-2xl p-6 sm:p-7 bg-rose-50/50 border border-rose-100 flex flex-col justify-between">
                           <div>
                             <div className="flex items-center gap-2.5 text-rose-700 font-extrabold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-rose-200">
                               <AlertTriangle className="w-4 h-4 text-rose-600" />
-                              <span>Kendala Finansial yang Dihadapi Perusahaan:</span>
+                              <span>{project.problemsHeading || 'Kendala yang Dihadapi:'}</span>
                             </div>
                             <div className="space-y-4">
                               {project.problems.map((prob, idx) => (
@@ -319,12 +339,12 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                           </div>
                         </div>
 
-                        {/* Kolom 2: Solusi yang Diberikan Melalui Finman */}
+                        {/* Kolom 2: Solusi */}
                         <div className="rounded-2xl p-6 sm:p-7 bg-emerald-50/50 border border-emerald-100 flex flex-col justify-between">
                           <div>
                             <div className="flex items-center gap-2.5 text-emerald-800 font-extrabold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-emerald-200">
                               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                              <span>Solusi yang Diberikan Melalui Finman:</span>
+                              <span>{project.solutionsHeading || `Solusi yang Diberikan Melalui ${project.title}:`}</span>
                             </div>
                             <div className="space-y-4">
                               {project.solutions.map((sol, idx) => (
@@ -356,55 +376,26 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                         </h4>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          
-                          {/* Supabase */}
-                          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
-                            <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-700 shrink-0">
-                              <Database className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <div className="flex items-center gap-2">
-                                <h5 className="font-extrabold text-sm text-[#0F172A]">Supabase</h5>
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Database &amp; Auth</span>
+                          {project.tools.map((tool, tIdx) => (
+                            <div key={tIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                              <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs shrink-0">
+                                {renderToolIcon(tool.iconType)}
                               </div>
-                              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                Penyimpanan basis data relasional PostgreSQL, otentikasi aman, sinkronisasi data real-time, dan Row-Level Security.
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* GitHub */}
-                          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
-                            <div className="p-2.5 rounded-xl bg-slate-900/10 text-slate-900 shrink-0">
-                              <GitBranch className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <div className="flex items-center gap-2">
-                                <h5 className="font-extrabold text-sm text-[#0F172A]">GitHub</h5>
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 text-slate-800">Version Control</span>
+                              <div>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <h5 className="font-extrabold text-sm text-[#0F172A]">{tool.name}</h5>
+                                  {tool.tagBadge && (
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${tool.badgeColor || 'bg-slate-200 text-slate-800'}`}>
+                                      {tool.tagBadge}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                                  {tool.desc || tool.role}
+                                </p>
                               </div>
-                              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                Pengelolaan source code, version tracking, automasi pipeline deployment, dan kolaborasi repositori yang aman.
-                              </p>
                             </div>
-                          </div>
-
-                          {/* Vercel */}
-                          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
-                            <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-700 shrink-0">
-                              <Globe className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <div className="flex items-center gap-2">
-                                <h5 className="font-extrabold text-sm text-[#0F172A]">Vercel</h5>
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">Cloud Hosting</span>
-                              </div>
-                              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                Deployment cloud edge global berkecepatan tinggi, serverless architecture, dan uptime andal 99.9%.
-                              </p>
-                            </div>
-                          </div>
-
+                          ))}
                         </div>
                       </div>
 
@@ -426,7 +417,7 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                             onClick={onConsult}
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-950 bg-gradient-to-r from-[#E6C564] via-[#D4AF37] to-[#B8860B] hover:brightness-105 shadow-md shadow-amber-900/15 transition-all duration-150 cursor-pointer"
                           >
-                            <span>Konsultasi Solusi Finansial</span>
+                            <span>{project.consultationText || `Konsultasi Solusi ${project.title}`}</span>
                             <ArrowRight className="w-4 h-4 text-slate-950" />
                           </button>
                         )}
